@@ -1,0 +1,262 @@
+﻿@model InterfacilityGatewayASPNET.dto.HandlerDto
+@{
+    ViewBag.Title = "DispositionEdit";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_LayoutPageTry2.cshtml";
+
+}
+
+<h2>Details</h2>
+
+<table class="table table-bordered table-hover">
+
+    <tbody>
+
+
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.RequestStatusHandlerDto)
+            </td>
+            <td>
+                @Model.RequestStatusHandlerDto
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+
+                @Html.LabelFor(m => m.ClientReportHandlerDto.Id)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.Id
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.FullName)
+
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.FullName
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.Label("Report")
+
+            </td>
+            <td>
+
+                @Html.ActionLink("Download Your File", "PDFRetrival", new { id = Model.HandlerTransferRequestHandlerDto.UpladedPDFId })
+
+
+
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.SocialNumber)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.SocialNumber
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.Nationality)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.Nationality
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.City)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.City
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.ReferringFacility)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.ReferringFacility
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.Gender)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.Gender
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.Email)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.Email
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.Phone1)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.Phone1
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.Phone2)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.Phone2
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.DateOfBirth)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.DateOfBirth
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.MedicalRecordNumber)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.MedicalRecordNumber
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.EligibilityStatusHandlerDto)
+            </td>
+            <td>
+                @Model.EligibilityStatusHandlerDto
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportHandlerDto.RequestDate)
+            </td>
+            <td>
+                @Model.ClientReportHandlerDto.RequestDate
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.CategoryHandlerDto)
+            </td>
+            <td>
+                @Model.CategoryHandlerDto
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+<br />
+<br />
+
+<h2>Action:</h2>
+
+@using (Html.BeginForm("Save", "HandlerTransferRequest", FormMethod.Post))
+{
+
+
+    @*
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.EligibilityStatusId)
+    @Html.DropDownListFor(m => m.ClientReport.EligibilityStatusId, new SelectList(Model.EligibilityStatuses, "Id", "Name"), "Select Please", new { @class = "form-control" })
+</div>
+
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.CategoryId)
+    @Html.DropDownListFor(m => m.ClientReport.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Select Please", new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.RequestStatusId)
+    @Html.DropDownListFor(m => m.ClientReport.RequestStatusId, new SelectList(Model.RequestStatuses, "Id", "Status"), "Select Please", new { @class = "form-control" })
+</div>
+
+<br />
+
+        @Html.HiddenFor(m => m.ClientReport.Id)
+        @Html.HiddenFor(m => m.ClientReport.RequestDate)
+
+    *@
+
+    if (Model.HandlerTransferRequestHandlerDto != null)
+    {
+        if (Model.HandlerTransferRequestHandlerDto.UserInchargeGroupId == 1 || Model.HandlerTransferRequestHandlerDto.UserInchargeGroupId == 2)
+        {
+<div class="form-group">
+    @Html.LabelFor(m => m.NextUser)
+    @Html.DropDownListFor(m => m.NextUser, new SelectList(Model.DropDownUserDto, "Id", "Name"), "Select Please", new { @class = "form-control" })
+    @Html.HiddenFor(m => m.HandlerActionDispositionHandlerDto.DispositionId, new { id = "DispositionId", Value = 4 })
+</div>
+
+        }
+        if (Model.HandlerTransferRequestHandlerDto.UserInchargeGroupId == 3 || Model.HandlerTransferRequestHandlerDto.UserInchargeGroupId == 4 || Model.HandlerTransferRequestHandlerDto.UserInchargeGroupId == 5)
+        {
+<div class="form-group">
+    @*@Html.LabelFor(m => m.HandlerActionDispositionHandlerDto.DispositionId)*@
+    @Html.HiddenFor(m => m.NextUser)
+    @Html.LabelFor(m => m.HandlerActionDispositionHandlerDto.DispositionId)
+    @Html.DropDownListFor(m => m.HandlerActionDispositionHandlerDto.DispositionId, new SelectList(Model.DropDownActionDispositionDtos, "Id", "Name"), "Select Please", new { @class = "form-control" })
+</div>
+
+        }
+    }
+<div class="form-group">
+    @Html.LabelFor(m => m.HandlerActionDispositionHandlerDto.Comment)
+    @*
+    @Html.TextBoxFor(m => m.HandlerActionDispositionHandlerDto.Comment, new { @class = "form-control" })
+
+    *@
+    @Html.TextAreaFor(m => m.HandlerActionDispositionHandlerDto.Comment, new { @class = "form-control" })
+
+</div>
+
+
+
+    @*
+        @Html.HiddenFor(m => m.HandlerActionDispositionHandlerDto.DispositionId)
+
+    *@
+
+    @Html.HiddenFor(m => m.HandlerTransferRequestHandlerDto.Id)
+    @Html.HiddenFor(m => m.HandlerTransferRequestHandlerDto.UserInChargeId)
+    @Html.HiddenFor(m => m.HandlerTransferRequestHandlerDto.UserInchargeGroupId)
+    @Html.HiddenFor(m => m.SupervisorId)
+
+<button type="submit" class="btn btn-primary">Save</button>
+
+
+<div class="position-absolute">
+
+    @Html.ActionLink("Back To List", "Index", "HandlerTransferRequest", new { id = Model.HandlerTransferRequestHandlerDto.UserInChargeId, groupId = Model.HandlerTransferRequestHandlerDto.UserInchargeGroupId }, null)
+
+</div>
+
+
+
+
+
+
+
+}

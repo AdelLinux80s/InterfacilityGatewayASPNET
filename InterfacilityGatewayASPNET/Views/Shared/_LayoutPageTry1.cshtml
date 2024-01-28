@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div>
+        <table class="table table-dark" style="width:100%;">
+            <tr>
+                <td>@Html.Partial("_NavBarHome")</td>
+                
+
+            </tr>
+        </table>
+        <table class="table table-dark" style="width:100%;">
+            <tr>
+                <td>LeftsideBar</td>
+                <td>@RenderBody()</td>
+                
+            </tr>
+        </table>
+            <table class="table table-dark" style="width:100%;">
+
+                
+                <tr>
+                    <td>Foor Left</td>
+                    <td>Foot Middle</td>
+                    <td>Foot Right</td>
+                </tr>
+            </table>
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

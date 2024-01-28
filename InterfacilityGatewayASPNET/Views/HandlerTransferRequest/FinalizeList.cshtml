@@ -1,0 +1,49 @@
+﻿@model List<InterfacilityGatewayASPNET.dto.HandlerDto>
+@using System.Web.Mvc.Html
+@{
+    ViewBag.Title = "FinalizeList";
+    Layout = "~/Views/Shared/_LayoutPageTry2.cshtml";
+}
+
+<h2>FinalizeList</h2>
+
+<h2>Pending Request(s):</h2>
+
+<hr />
+@if (!Model.Any())
+{
+    <p>You do not have pending requests.</p>
+}
+
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Request Number</th>
+                <th>Name</th>
+                <th>Eligibility</th>
+                <th>Urgency</th>
+                <th>Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var HandlerDto in Model)
+            {
+                <tr>
+
+
+
+                    <td>@Html.ActionLink(HandlerDto.IdHandlerDto, "FinalizeEdit", "HandlerTransferRequest", new { id = HandlerDto.HandlerTransferRequestHandlerDto.Id }, null)</td>
+                    <td>@Html.ActionLink(HandlerDto.ClientReportHandlerDto.FullName, "FinalizeEdit", "HandlerTransferRequest", new { id = HandlerDto.HandlerTransferRequestHandlerDto.Id }, null)</td>
+                    <td>@Html.ActionLink(HandlerDto.EligibilityStatusHandlerDto, "FinalizeEdit", "HandlerTransferRequest", new { id = HandlerDto.HandlerTransferRequestHandlerDto.Id }, null)</td>
+                    <td>@Html.ActionLink(HandlerDto.CategoryHandlerDto, "FinalizeEdit", "HandlerTransferRequest", new { id = HandlerDto.HandlerTransferRequestHandlerDto.Id }, null)</td>
+                    <td>@Html.ActionLink(HandlerDto.RequestDateHandlerDto, "FinalizeEdit", "HandlerTransferRequest", new { id = HandlerDto.HandlerTransferRequestHandlerDto.Id }, null)</td>
+
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}

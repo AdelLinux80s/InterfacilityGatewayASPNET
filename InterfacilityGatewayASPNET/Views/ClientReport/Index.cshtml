@@ -1,0 +1,48 @@
+﻿@model List<InterfacilityGatewayASPNET.dto.IndexViewDto>
+@using System.Web.Mvc.Html
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>List of Requests:</h2>
+
+@if (!Model.Any())
+{
+    <p>We don't have any customers yet.</p>
+}
+
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Request Number</th>
+                <th>Name</th>
+                <th>Eligibility</th>
+                <th>Urgency</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var IndexViewDto in Model)
+            {
+                <tr>
+
+
+
+                    <td>@Html.ActionLink(IndexViewDto.IdIndexViewDto, "Details", "ClientReport", new { id = IndexViewDto.ClientReportIndexViewDto.Id }, null)</td>
+                    <td>@Html.ActionLink(IndexViewDto.ClientReportIndexViewDto.FullName, "Details", "ClientReport", new { id = IndexViewDto.ClientReportIndexViewDto.Id }, null)</td>
+                    <td>@Html.ActionLink(IndexViewDto.EligibilityStatusIndexViewDto, "Details", "ClientReport", new { id = IndexViewDto.ClientReportIndexViewDto.Id }, null)</td>
+                    <td>@Html.ActionLink(IndexViewDto.CategoryIndexViewDto, "Details", "ClientReport", new { id = IndexViewDto.ClientReportIndexViewDto.Id }, null)</td>
+                    <td>@Html.ActionLink(IndexViewDto.RequestDateIndexViewDto, "Details", "ClientReport", new { id = IndexViewDto.ClientReportIndexViewDto.Id }, null)</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "ClientReport", new { id = IndexViewDto.ClientReportIndexViewDto.Id }, null)</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+

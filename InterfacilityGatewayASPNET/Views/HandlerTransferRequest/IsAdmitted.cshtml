@@ -1,0 +1,52 @@
+﻿@model List<InterfacilityGatewayASPNET.dto.HandlerDto>
+@using System.Web.Mvc.Html
+@{
+    ViewBag.Title = "IsAdmitted";
+    Layout = "~/Views/Shared/_LayoutPageTry2.cshtml";
+}
+
+
+<h2>Case(s) admitted under your care:</h2>
+
+<hr />
+@if (!Model.Any())
+{
+    <p>You have not admitted any patient yet.</p>
+}
+
+else
+{
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>Request Number</th>
+                <th>Name</th>
+                <th>Eligibility</th>
+                <th>Urgency</th>
+                <th>Date</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var HandlerDto in Model)
+            {
+                <tr>
+
+
+
+                    <td>@Html.ActionLink(HandlerDto.IdHandlerDto, "Detail", "HandlerTransferRequest", new { Id = HandlerDto.HandlerTransferRequestHandlerDto.Id, LayoutUser = HandlerDto.UserInChargeId, groupId = HandlerDto.LayoutUserGroupId }, null)</td>
+                    <td>@Html.ActionLink(HandlerDto.ClientReportHandlerDto.FullName, "Detail", "HandlerTransferRequest", new { Id = HandlerDto.HandlerTransferRequestHandlerDto.Id, LayoutUser = HandlerDto.UserInChargeId, groupId = HandlerDto.LayoutUserGroupId }, null)</td>
+                    <td>@Html.ActionLink(HandlerDto.EligibilityStatusHandlerDto, "Detail", "HandlerTransferRequest", new { Id = HandlerDto.HandlerTransferRequestHandlerDto.Id, LayoutUser = HandlerDto.UserInChargeId, groupId = HandlerDto.LayoutUserGroupId }, null)</td>
+                    <td>@Html.ActionLink(HandlerDto.CategoryHandlerDto, "Detail", "HandlerTransferRequest", new { Id = HandlerDto.HandlerTransferRequestHandlerDto.Id, LayoutUser = HandlerDto.UserInChargeId, groupId = HandlerDto.LayoutUserGroupId }, null)</td>
+                    <td>@Html.ActionLink(HandlerDto.RequestDateHandlerDto, "Detail", "HandlerTransferRequest", new { Id = HandlerDto.HandlerTransferRequestHandlerDto.Id, LayoutUser = HandlerDto.UserInChargeId, groupId = HandlerDto.LayoutUserGroupId }, null)</td>
+
+
+                </tr>
+            }
+        </tbody>
+
+
+    </table>
+
+
+}

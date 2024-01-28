@@ -1,0 +1,145 @@
+﻿@model InterfacilityGatewayASPNET.dto.IndexViewDto
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<table class="table table-bordered table-hover">
+
+    <tbody>
+
+
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.Id)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.Id
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.FullName)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.FullName
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.SocialNumber)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.SocialNumber
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.Nationality)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.Nationality
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.City)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.City
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.ReferringFacility)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.ReferringFacility
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.Gender)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.Gender
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.Email)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.Email
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.Phone1)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.Phone1
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.Phone2)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.Phone2
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.DateOfBirth)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.DateOfBirth
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.MedicalRecordNumber)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.MedicalRecordNumber
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.EligibilityStatusIndexViewDto)
+            </td>
+            <td>
+                @Model.EligibilityStatusIndexViewDto
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.ClientReportIndexViewDto.RequestDate)
+            </td>
+            <td>
+                @Model.ClientReportIndexViewDto.RequestDate
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.CategoryIndexViewDto)
+            </td>
+            <td>
+                @Model.CategoryIndexViewDto
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(m => m.RequestStatusIndexViewDto)
+            </td>
+            <td>
+                @Model.RequestStatusIndexViewDto
+            </td>
+        </tr>
+    </tbody>
+</table>
+

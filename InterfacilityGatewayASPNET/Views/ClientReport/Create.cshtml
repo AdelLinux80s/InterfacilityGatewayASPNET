@@ -1,0 +1,231 @@
+﻿
+@model InterfacilityGatewayASPNET.ViewModels.ClientReportViewModel
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Create New Request</h2>
+
+@using (Html.BeginForm("Save", "ClientReport", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+
+
+
+<div class="form-group">
+    @* @Html.DropDownList("departmentsSelectListItems", new Selectlist(Model.Select(m => new { Value = m.Id, Text = m.Name }), "Value", "Text"), "--Select--")}) *@
+    @*@Html.DropDownList(m => m.ClientReport.SocialNumber) *@
+    @* @Html.DropDownListFor(Model.DeparrtmentDropDown) *@
+
+    @* @Html.DropDownListFor(m => m.Name, new SelectList(Model, "Id", "Name"), "Select Membership Type", new { @class = "form-control" }) *@
+
+</div>
+
+
+
+
+
+
+
+<div class="form-group">
+
+    @Html.LabelFor(m => m.ClientReport.SocialNumber)
+    @Html.TextBoxFor(m => m.ClientReport.SocialNumber, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.FullName)
+    @Html.TextBoxFor(m => m.ClientReport.FullName, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.Nationality)
+    @Html.TextBoxFor(m => m.ClientReport.Nationality, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.City)
+    @Html.TextBoxFor(m => m.ClientReport.City, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.ReferringFacility)
+    @Html.TextBoxFor(m => m.ClientReport.ReferringFacility, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.Gender)
+    @Html.TextBoxFor(m => m.ClientReport.Gender, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.Email)
+    @Html.TextBoxFor(m => m.ClientReport.Email, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.Phone1)
+    @Html.TextBoxFor(m => m.ClientReport.Phone1, new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.Phone2)
+    @Html.TextBoxFor(m => m.ClientReport.Phone2, new { @class = "form-control" })
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    @*
+
+
+            //<div class="form-group">
+    //    @Html.LabelFor(m => m.ClientReport.DateOfBirth)
+    //    @Html.TextBoxFor(m => m.ClientReport.DateOfBirth, new { @class = "form-control" })
+    //
+</div>
+<div class="form-group">
+    @*
+    wooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooorking
+    <label for="ClientReport_DateOfBirth">DateOfBirth</label>
+
+    *@
+    @*
+    @Html.EditorFor(m => m.ClientReport.DateOfBirth, new { htmlAttributes = new { @value = Model.ClientReport.DateOfBirth.Date.ToString("yyyy-MM-dd") } })
+    *@
+
+    //@Html.LabelFor(m => m.ClientReport.DateOfBirth)
+    //<input class="form-control" id="ClientReport.DateOfBirth" name="ClientReport.DateOfBirth" type="date" />
+
+    //
+</div>
+
+
+   // *@
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="form-group">
+
+    @*
+    wooooooooooooooooooooooooooooooorkoing
+    <label for="ClientReport_DateOfBirth">DateOfBirth</label>
+    *@
+
+
+
+
+
+    @Html.LabelFor(m => m.ClientReport.DateOfBirth)
+    @*
+    @Html.EditorFor(m => m.ClientReport.DateOfBirth)
+    @Html.EditorFor(m => m.ClientReport.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+    *@
+
+    @Html.EditorFor(m => m.ClientReport.DateOfBirth, new { htmlAttributes = new { @class = "form-control" } })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.MedicalRecordNumber)
+    @Html.TextBoxFor(m => m.ClientReport.MedicalRecordNumber, new { @class = "form-control" })
+</div>
+
+
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.EligibilityStatusId)
+    @Html.DropDownListFor(m => m.ClientReport.EligibilityStatusId, new SelectList(Model.EligibilityStatuses, "Id", "Name"), "Select Please", new { @class = "form-control" })
+</div>
+
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.CategoryId)
+    @Html.DropDownListFor(m => m.ClientReport.CategoryId, new SelectList(Model.Categories, "Id", "Name"), "Select Please", new { @class = "form-control" })
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.RequestStatusId)
+    @Html.DropDownListFor(m => m.ClientReport.RequestStatusId, new SelectList(Model.RequestStatuses, "Id", "Status"), "Select Please", new { @class = "form-control" })
+</div>
+
+
+<div class="form-group">
+
+    @Html.LabelFor(m => m.FileDto.FileDtoHttpPostedFileBaseFile)
+
+
+
+    @Html.TextBoxFor(m => m.FileDto.FileDtoHttpPostedFileBaseFile, new { type = "file" })
+</div>
+
+
+@*
+<div class="form-group">
+    @Html.LabelFor(m => m.ClientReport.RequestStatus)
+    @Html.TextBoxFor(m => m.ClientReport.RequestStatus, new { @class = "form-control" })
+</div>
+*@
+<br />
+
+@Html.HiddenFor(m => m.ClientReport.Id)
+@Html.HiddenFor(m => m.ClientReport.RequestDate)
+
+@*
+    @Html.HiddenFor(m => m.FileDto.FileDtoHttpPostedFileBaseFile)
+*@
+
+
+
+<button type="submit" class="btn btn-primary">Save</button>
+
+
+
+
+
+@*
+    //@Html.DropDownList("ListItem")
+
+*@
+
+
+}
+
